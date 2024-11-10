@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import { Given } from "@badeball/cypress-cucumber-preprocessor";
 const namespace = "4k2zi"; // Replace with your desired namespace (email prefix)
 const apiKey = "fe073a2e-8960-4940-a4b5-42c1df6812f6"; // Replace with your TestMail API key
@@ -40,6 +41,9 @@ const getOTPFromEmail = () => {
         const otpEmail = res.body.emails[0];
         const otp = otpEmail.subject.substr(0, 4); // Assuming OTP is in the email subject
         cy.wrap(otp).as("otp"); // Save OTP as a Cypress alias for later use
+        cy.get("img[alt='Flight Centre']").should("have.attr", "alt", "Flight Centre")
+        
+        cy.get
       });
     });
   });
