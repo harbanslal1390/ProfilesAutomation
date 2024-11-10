@@ -14,7 +14,7 @@ Given("I am on the login page", () => {
 
   getOTPFromEmail();
 
-  // Step 3: Use the OTP in your form
+  // Step 3: Use the OTP in your form 
   cy.get("@otp").then((otp) => {
     cy.log(otp);
     console.log(otp);
