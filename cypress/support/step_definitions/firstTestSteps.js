@@ -2,7 +2,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 const namespace = "4k2zi"; // Replace with your desired namespace (email prefix)
 const apiKey = "fe073a2e-8960-4940-a4b5-42c1df6812f6"; // Replace with your TestMail API key
-const tag = "your-tag6"; // Replace with your tag (optional, depending on your TestMail setup)
+const tag = "your-tag21"; // Replace with your tag (optional, depending on your TestMail setup)
 
 // Create a function to retrieve OTP from the TestMail API
 
@@ -32,8 +32,24 @@ When("I enter the customer first name and last name", () => {
 });
 
 Then("I enter required data in the Personal info page",()=>{
-  cy.wait(2000)
+  cy.wait(5000)
   cy.get("button[aria-label='Add Preferred name']").click()
+  cy.get("#mui-1").type("FakePrefferedName")
+  cy.get('button[data-testid="PrimaryButton"]').click();
+  cy.wait(5000)
+  cy.get("button[aria-label='Add Date of birth']").click()
+  cy.get("#mui-2").type("12/12/2010")
+  cy.get('button[data-testid="PrimaryButton"]').click();
+  cy.wait(5000)
+  cy.get("button[aria-label='Add Phone number']").click()
+  cy.get("#mui-5").type("456543234")
+  cy.get('button[data-testid="PrimaryButton"]').click();
+  cy.wait(5000)
+  // cy.get("button[aria-label='Add Passport details']").click()
+  // cy.get("#mui-5").type("456543234")
+  // cy.get('button[data-testid="PrimaryButton"]').click();
+  
+  
 });
 const getOTPFromEmail = () => {
   const currentDate = Date.now();
