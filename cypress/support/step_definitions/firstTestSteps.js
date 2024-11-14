@@ -59,7 +59,7 @@ Then("I enter required data in the Personal info page",()=>{
   cy.get('input[placeholder="Frequent Flyer Number"]').type("123456789")
   cy.wait(5000)
   cy.get('button[Type="submit"]').click();
-  // cy.get("#mui-5").type("456543234")
+  // cy.get("#mui-5").type("456543234") 
   // cy.get('button[data-testid="PrimaryButton"]').click();
   
   
