@@ -2,14 +2,17 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 const namespace = "4k2zi"; // Replace with your desired namespace (email prefix)
 const apiKey = "fe073a2e-8960-4940-a4b5-42c1df6812f6"; // Replace with your TestMail API key
-const tag = "your-tag40"; // Replace with your tag (optional, depending on your TestMail setup)
+const tag = "your-tag44"; // Replace with your tag (optional, depending on your TestMail setup)
 
 // Create a function to retrieve OTP from the TestMail API
 
 Given("I am on the login page", () => {
+  const { setValue } = require('../sharedData');
   cy.visit("https://stg-account.flightcentre.com.au/");
 
   cy.get("#email").type(`${namespace}.${tag}@inbox.testmail.app`);
+  const myValue = `${namespace}.${tag}@inbox.testmail.app`;
+    setValue('ShareEmail', myValue);
   cy.log();
   cy.get('button[data-testid="PrimaryButton"]').click();
 
